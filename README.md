@@ -4,6 +4,8 @@
 
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
+Storybook: https://akigami.github.io/akigami-ui/
+
 ## Install
 
 ```bash
