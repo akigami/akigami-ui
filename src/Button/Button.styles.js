@@ -1,9 +1,20 @@
-import styled, { css } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
+
+const rotating = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+`;
 
 const views = {
-  primary: ({ theme }) => css`
+  primary: ({ theme, loading }) => css`
     color: ${theme.colors.textInverted};
-    background-color: ${theme.colors.primary};
+    background-color: ${loading
+      ? theme.colors.primaryActive
+      : theme.colors.primary};
     &:hover {
       background-color: ${theme.colors.primaryHover};
     }
@@ -11,9 +22,11 @@ const views = {
       background-color: ${theme.colors.primaryActive};
     }
   `,
-  secondary: ({ theme }) => css`
+  secondary: ({ theme, loading }) => css`
     color: ${theme.colors.text};
-    background-color: ${theme.colors.secondary};
+    background-color: ${loading
+      ? theme.colors.secondaryActive
+      : theme.colors.secondary};
     &:hover {
       background-color: ${theme.colors.secondaryHover};
     }
@@ -21,9 +34,11 @@ const views = {
       background-color: ${theme.colors.secondaryActive};
     }
   `,
-  danger: ({ theme }) => css`
+  danger: ({ theme, loading }) => css`
     color: ${theme.colors.textInverted};
-    background-color: ${theme.colors.danger};
+    background-color: ${loading
+      ? theme.colors.dangerActive
+      : theme.colors.danger};
     &:hover {
       background-color: ${theme.colors.dangerHover};
     }
@@ -31,18 +46,33 @@ const views = {
       background-color: ${theme.colors.dangerActive};
     }
   `,
+  disabled: ({ theme }) => css`
+    color: ${theme.colors.textDisabled};
+    background-color: ${theme.colors.disabled};
+  `,
 };
 
-export const Base = styled.button`
-  cursor: pointer;
+export const Base = styled('button').withConfig({
+  shouldForwardProp: (prop, defaultValidatorFn) =>
+    !['loading'].includes(prop) && defaultValidatorFn(prop),
+})`
+  display: flex;
+  align-items: center;
+  cursor: ${(props) =>
+    props.disabled || props.loading ? 'default' : 'pointer'};
   border: none;
   outline: none;
   box-sizing: border-box;
+  font-size: ${({ theme }) => theme.button.fontSize};
+  line-height: ${({ theme }) => theme.button.lineHeight};
   font-family: ${({ theme }) => theme.font};
   font-weight: ${({ theme }) => theme.button.weight};
-  padding: ${({ theme }) => theme.button.padding};
+  padding: ${(props) =>
+    props.icon ? props.theme.button.paddingIcon : props.theme.button.padding};
   min-height: ${({ theme }) => theme.button.height}px;
   border-radius: ${({ theme }) => theme.button.height / 2}px;
+  pointer-events: ${(props) =>
+    props.disabled || props.loading ? 'none' : 'auto'};
 
   &:focus {
     box-shadow: 0 0 0 2px ${({ theme }) => theme.colors.textInverted},
@@ -54,10 +84,19 @@ export const Base = styled.button`
     `background-color ${theme.effects.timing} ${theme.effects.timingFunction},
      box-shadow  ${theme.effects.timing} ${theme.effects.timingFunction}`};
 
-  ${(props) => views[props.view]};
+  ${(props) => (props.disabled ? views.disabled : views[props.view])};
 `;
 
 export const Side = styled.div`
   padding-left: ${(props) => (props.dir === 'right' ? 8 : 0)}px;
   padding-right: ${(props) => (props.dir === 'left' ? 8 : 0)}px;
+  box-sizing: border-box;
+  display: inline-flex;
+  width: 26px;
+  margin-top: -2px;
+`;
+
+export const SpinSvg = styled.svg`
+  font-size: 17px;
+  animation: ${rotating} 1s linear infinite;
 `;

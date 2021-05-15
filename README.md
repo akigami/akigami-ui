@@ -1,28 +1,35 @@
 # akigami-ui
 
-> Made with create-react-library
+> Made with love for Akigami
 
-[![NPM](https://img.shields.io/npm/v/akigami-ui.svg)](https://www.npmjs.com/package/akigami-ui) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## Install
 
 ```bash
-npm install --save akigami-ui
+npm install --save akigami-ui styled-components
 ```
 
 ## Usage
 
 ```jsx
-import React, { Component } from 'react'
+import React from 'react'
+import { Button } from 'akigami-ui'
 
-import MyComponent from 'akigami-ui'
-import 'akigami-ui/dist/index.css'
-
-class Example extends Component {
-  render() {
-    return <MyComponent />
-  }
+export function Example() {
+  return (
+    <Button>Hi, example button</Button>
+  );
 }
+```
+
+## For development
+
+```bash
+git clone git@github.com:akigami/akigami-ui.git
+cd akigami-ui
+npm install
+npm start
 ```
 
 ## License
