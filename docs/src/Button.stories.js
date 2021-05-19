@@ -9,7 +9,7 @@ export default {
   argTypes: {
     view: {
       control: 'select',
-      options: ['primary', 'secondary', 'danger'],
+      options: ['primary', 'secondary', 'danger', 'shadow', 'shadowInverted'],
     },
     loading: {
       control: 'boolean'
@@ -40,6 +40,23 @@ Danger.args = {
   ...commonArgs,
   view: 'danger',
 };
+
+
+export const Shadow = () => (
+  <div style={{ boxSizing: 'border-box', padding: 12, width: 300, height: 140, background: `url(https://i.picsum.photos/id/467/300/140.jpg?hmac=Sru0zhZqp1AsMsM0uhjSOs1lV6UHzVDs_Wtw_8cYFLY)` }}>
+    <Button view="shadow">
+      {commonArgs.children}
+    </Button>
+  </div>
+);
+
+export const ShadowInverted = () => (
+  <div style={{ boxSizing: 'border-box', padding: 12, width: 300, height: 140, background: `url(https://i.picsum.photos/id/1063/300/140.jpg?hmac=4L4NT0MyIUHegcykJh-rBMeXICzypR0wzEkCnn1qHac)` }}>
+    <Button view="shadowInverted">
+      {commonArgs.children}
+    </Button>
+  </div>
+);
 
 export const Disabled = Template.bind({});
 Disabled.args = {

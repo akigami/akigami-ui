@@ -46,6 +46,30 @@ const views = {
       background-color: ${theme.colors.dangerActive};
     }
   `,
+  shadow: ({ theme, loading }) => css`
+    color: ${theme.colors.text};
+    background-color: ${loading
+      ? theme.colors.shadowActive
+      : theme.colors.shadow};
+    &:hover {
+      background-color: ${theme.colors.shadowHover};
+    }
+    &:active {
+      background-color: ${theme.colors.shadowActive};
+    }
+  `,
+  shadowInverted: ({ theme, loading }) => css`
+    color: ${theme.colors.textInverted};
+    background-color: ${loading
+      ? theme.colors.shadowInvertedActive
+      : theme.colors.shadowInverted};
+    &:hover {
+      background-color: ${theme.colors.shadowInvertedHover};
+    }
+    &:active {
+      background-color: ${theme.colors.shadowInvertedActive};
+    }
+  `,
   disabled: ({ theme }) => css`
     color: ${theme.colors.textDisabled};
     background-color: ${theme.colors.disabled};
@@ -67,12 +91,15 @@ export const Base = styled('button').withConfig({
   line-height: ${({ theme }) => theme.button.lineHeight};
   font-family: ${({ theme }) => theme.font};
   font-weight: ${({ theme }) => theme.button.weight};
+  margin: 0;
   padding: ${(props) =>
     props.icon ? props.theme.button.paddingIcon : props.theme.button.padding};
   min-height: ${({ theme }) => theme.button.height}px;
   border-radius: ${({ theme }) => theme.button.height / 2}px;
   pointer-events: ${(props) =>
     props.disabled || props.loading ? 'none' : 'auto'};
+
+  box-shadow: 0 0 0 2px transparent, 0 0 0 4px transparent;
 
   &:focus {
     box-shadow: 0 0 0 2px ${({ theme }) => theme.colors.textInverted},
@@ -93,10 +120,15 @@ export const Side = styled.div`
   box-sizing: border-box;
   display: inline-flex;
   width: 26px;
+  height: 18px;
   margin-top: -2px;
+
+  > svg {
+    width: 18px;
+    height: 18px;
+  }
 `;
 
 export const SpinSvg = styled.svg`
-  font-size: 17px;
   animation: ${rotating} 1s linear infinite;
 `;

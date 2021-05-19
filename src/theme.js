@@ -27,5 +27,11 @@ export const theme = {
     danger: '#bd1010',
     dangerHover: '#b01010',
     dangerActive: '#ab1010',
+    shadow: 'transparent',
+    shadowHover: 'rgba(0, 0, 0, 0.15)',
+    shadowActive: 'rgba(0, 0, 0, 0.25)',
+    shadowInverted: 'transparent',
+    shadowInvertedHover: 'rgba(255, 255, 255, 0.15)',
+    shadowInvertedActive: 'rgba(255, 255, 255, 0.25)',
   },
 };
