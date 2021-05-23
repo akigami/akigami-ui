@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { Button } from '../Button';
 import { Base } from './Tabs.styles';
 
-export function Tabs({ items, active, onChange }) {
+export function Tabs({ items, active, onChange, ...props }) {
   const defaultActvie =
     active || (Array.isArray(items) && items[0] && items[0].value);
   const [_active, _setActive] = useState(defaultActvie);
@@ -13,7 +13,7 @@ export function Tabs({ items, active, onChange }) {
   }, [active]);
 
   return (
-    <Base>
+    <Base {...props}>
       {items.map((item) => {
         const isActive = item.value === _active;
 

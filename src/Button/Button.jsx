@@ -13,6 +13,8 @@ export function Button({
   loading,
   onClick,
   disabled,
+  block,
+  ...props
 }) {
   const [loadingState, setLoadingState] = useState(loading);
   useEffect(() => setLoadingState(loading), [loading]);
@@ -42,6 +44,8 @@ export function Button({
 
   return (
     <Base
+      {...props}
+      block={block}
       view={view}
       icon={Boolean(iconLeft || iconRight)}
       onClick={clickHandler}
@@ -70,6 +74,7 @@ Button.propTypes = {
   loading: PropTypes.bool,
   disabled: PropTypes.bool,
   onClick: PropTypes.func,
+  block: PropTypes.bool,
 };
 
 Button.defaultProps = {
@@ -80,4 +85,5 @@ Button.defaultProps = {
   loading: false,
   disabled: false,
   onClick: null,
+  block: false,
 };

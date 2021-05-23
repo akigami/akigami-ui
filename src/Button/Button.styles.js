@@ -82,6 +82,8 @@ export const Base = styled('button').withConfig({
 })`
   display: flex;
   align-items: center;
+  justify-content: center;
+  width: ${(props) => (props.block ? '100%' : 'auto')};
   cursor: ${(props) =>
     props.disabled || props.loading ? 'default' : 'pointer'};
   border: none;
