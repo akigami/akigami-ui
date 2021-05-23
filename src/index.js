@@ -1,3 +1,4 @@
+export { theme } from './theme';
 export { Button } from './Button';
 export { ButtonGroup } from './ButtonGroup';
-export { theme } from './theme';
+export { Tabs } from './Tabs';

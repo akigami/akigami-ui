@@ -8,11 +8,16 @@ export const theme = {
     fontSize: '14px',
     lineHeight: '18px',
   },
+  tabs: {
+    padding: 4,
+  },
   effects: {
     timing: '0.15s',
     timingFunction: 'ease',
   },
   colors: {
+    background: '#ffffff',
+    backgroundAccent: '#faf3f3',
     focus: '#999999',
     text: '#1d1d1d',
     textInverted: '#ffffff',
