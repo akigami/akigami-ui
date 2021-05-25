@@ -2,4 +2,9 @@
 
 mkdir -p ./dist/dist
 mv ./dist/*.* ./dist/dist
-cp ./{package*.json,README.md} ./dist
+ls -la ./dist
+cp ./package.json ./dist
+cp ./package-lock.json ./dist
+cp ./README.md ./dist
+ls -la ./dist
+ls -la ./dist/dist
