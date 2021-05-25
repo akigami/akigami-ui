@@ -97,7 +97,7 @@ jobs:
 
   storybook:
     name: "Deploy Storybook"
-    needs: [bump-version, build, publish-npm, publish-gpr]
+    needs: [publish-npm, publish-gpr]
     runs-on: ubuntu-latest
     steps:
       - name: Deploy
