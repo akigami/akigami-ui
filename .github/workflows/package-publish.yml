@@ -17,6 +17,16 @@ jobs:
       - run: npm ci
       - run: npm run build
       - run: npm run predeploy
+      - name: Save dist
+        uses: actions/upload-artifact@v2
+        with:
+          name: dist
+          path: ./dist/
+      - name: Save storybook build
+        uses: actions/upload-artifact@v2
+        with:
+          name: storybook-build
+          path: ./docs/storybook-static
 
   publish-npm:
     name: "Publish to NPM"
@@ -28,7 +38,11 @@ jobs:
         with:
           node-version: 16
           registry-url: https://registry.npmjs.org/
-      - run: cat ./package.json
+      - name: Download dist
+        uses: actions/download-artifact@v2
+        with:
+          name: dist
+          path: ./dist
       - run: ls -la
       - run: npm ci
       - run: sh scripts/prepublish.sh
@@ -49,9 +63,13 @@ jobs:
         with:
           node-version: 16
           registry-url: https://npm.pkg.github.com/
-      - run: npm ci
+      - name: Download dist
+        uses: actions/download-artifact@v2
+        with:
+          name: dist
+          path: ./dist
       - run: sh scripts/prepublish.sh
-      - run: npm publish dist/
+      - run: npm publish ./dist
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
@@ -60,6 +78,11 @@ jobs:
     needs: [publish-npm, publish-gpr]
     runs-on: ubuntu-latest
     steps:
+      - name: Download dist
+        uses: actions/download-artifact@v2
+        with:
+          name: storybook-build
+          path: ./docs/storybook-static
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
