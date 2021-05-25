@@ -6,5 +6,6 @@ ls -la ./dist
 cp ./package.json ./dist
 cp ./package-lock.json ./dist
 cp ./README.md ./dist
+cp ./.npmrc ./dist
 ls -la ./dist
 ls -la ./dist/dist
