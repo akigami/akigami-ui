@@ -31,6 +31,13 @@ const items = [
   },
 ];
 
+export const Rounded = () => (
+  <Tabs
+    rounded
+    items={items}
+  />
+);
+
 export const Uncontrolled = () => (
   <Tabs
     items={items}

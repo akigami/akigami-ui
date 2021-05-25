@@ -13,6 +13,9 @@ export default {
     },
     loading: {
       control: 'boolean'
+    },
+    rounded: {
+      control: 'boolean'
     }
   },
 };
@@ -21,6 +24,12 @@ const Template = (args) => <Button {...args} />;
 
 const commonArgs = {
   children: 'Кнопка',
+};
+
+export const Rounded = Template.bind({});
+Rounded.args = {
+  ...commonArgs,
+  rounded: true,
 };
 
 export const Primary = Template.bind({});
@@ -147,4 +156,14 @@ IconBoth.args = {
   ...commonArgs,
   iconLeft: <FileDownload />,
   iconRight: <FileDownload />,
+};
+
+
+export const Complex = () => {
+  return (
+    <div style={{ width: 200 }}>
+      <Button block style={{ marginBottom: 8 }}>Подписаться</Button>
+      <Button block view="secondary">Подробности</Button>
+    </div>
+  );
 };

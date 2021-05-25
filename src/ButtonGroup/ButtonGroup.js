@@ -6,6 +6,10 @@ export const ButtonGroup = styled.div`
 
   > ${Base} {
     border-radius: 0;
+
+    &:focus {
+      z-index: 1;
+    }
   }
   > ${Base}:first-child {
     border-top-left-radius: ${({ theme }) => theme.button.height / 2}px;

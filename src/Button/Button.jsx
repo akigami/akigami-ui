@@ -14,6 +14,7 @@ export function Button({
   onClick,
   disabled,
   block,
+  rounded,
   ...props
 }) {
   const [loadingState, setLoadingState] = useState(loading);
@@ -45,6 +46,7 @@ export function Button({
   return (
     <Base
       {...props}
+      rounded={rounded}
       block={block}
       view={view}
       icon={Boolean(iconLeft || iconRight)}
@@ -75,6 +77,7 @@ Button.propTypes = {
   disabled: PropTypes.bool,
   onClick: PropTypes.func,
   block: PropTypes.bool,
+  rounded: PropTypes.bool,
 };
 
 Button.defaultProps = {
@@ -86,4 +89,5 @@ Button.defaultProps = {
   disabled: false,
   onClick: null,
   block: false,
+  rounded: false,
 };

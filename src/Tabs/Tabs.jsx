@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { Button } from '../Button';
 import { Base } from './Tabs.styles';
 
-export function Tabs({ items, active, onChange, ...props }) {
+export function Tabs({ items, active, onChange, rounded, ...props }) {
   const defaultActvie =
     active || (Array.isArray(items) && items[0] && items[0].value);
   const [_active, _setActive] = useState(defaultActvie);
@@ -13,7 +13,7 @@ export function Tabs({ items, active, onChange, ...props }) {
   }, [active]);
 
   return (
-    <Base {...props}>
+    <Base {...props} rounded={rounded}>
       {items.map((item) => {
         const isActive = item.value === _active;
 
@@ -29,6 +29,7 @@ export function Tabs({ items, active, onChange, ...props }) {
             key={item.value}
             view={isActive ? 'primary' : 'shadow'}
             onClick={callback}
+            rounded={rounded}
           >
             {item.title}
           </Button>
@@ -47,10 +48,12 @@ Tabs.propTypes = {
   ),
   active: PropTypes.string,
   onChange: PropTypes.func,
+  rounded: PropTypes.bool,
 };
 
 Tabs.defaultProps = {
   items: [],
   active: null,
   onChange: null,
+  rounded: false,
 };

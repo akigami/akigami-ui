@@ -97,7 +97,8 @@ export const Base = styled('button').withConfig({
   padding: ${(props) =>
     props.icon ? props.theme.button.paddingIcon : props.theme.button.padding};
   min-height: ${({ theme }) => theme.button.height}px;
-  border-radius: ${({ theme }) => theme.button.height / 2}px;
+  border-radius: ${({ theme, rounded }) =>
+    rounded ? theme.button.height / 2 : 0}px;
   pointer-events: ${(props) =>
     props.disabled || props.loading ? 'none' : 'auto'};
 
