@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Base as ButtonBase } from '../Button/Button.styles';
 
 export const Base = styled.div`
-  display: flex;
+  display: inline-flex;
   box-sizing: content-box;
   padding: ${({ theme }) => theme.tabs.padding}px;
   border-radius: ${({ theme, rounded }) =>
