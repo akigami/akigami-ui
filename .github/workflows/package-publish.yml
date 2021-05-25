@@ -24,6 +24,7 @@ jobs:
         with:
           node-version: 16
           registry-url: https://registry.npmjs.org/
+      - run: npm ci
       - run: sh scripts/prepublish.sh
       - run: npm publish dist/
         env:
@@ -41,7 +42,20 @@ jobs:
         with:
           node-version: 16
           registry-url: https://npm.pkg.github.com/
+      - run: npm ci
       - run: sh scripts/prepublish.sh
       - run: npm publish dist/
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+
+  next:
+    needs: [publish-npm, publish-gpr]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger next workflow
+        if: success()
+        uses: peter-evans/repository-dispatch@v1
+        with:
+          token: ${{ secrets.REPO_GHA_PAT }}
+          repository: ${{ github.repository }}
+          event-type: trigger-storybook
