@@ -43,8 +43,6 @@ jobs:
         with:
           name: dist
           path: ./dist
-      - run: ls -la
-      - run: npm ci
       - run: sh scripts/prepublish.sh
       - run: npm publish dist/
         env:
