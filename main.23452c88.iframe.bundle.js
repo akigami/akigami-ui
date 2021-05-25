@@ -121,7 +121,7 @@
     border-bottom-right-radius: ${0}px;
   }
 `),Base,Base,({theme:theme})=>theme.button.height/2,({theme:theme})=>theme.button.height/2,Base,({theme:theme})=>theme.button.height/2,({theme:theme})=>theme.button.height/2);let _t$2;const Base$1=styled_components__WEBPACK_IMPORTED_MODULE_2__.c.div(_t$2||(_t$2=(t=>t)`
-  display: flex;
+  display: inline-flex;
   box-sizing: content-box;
   padding: ${0}px;
   border-radius: ${0}px;
