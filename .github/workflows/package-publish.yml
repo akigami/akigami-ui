@@ -83,6 +83,8 @@ jobs:
         with:
           name: dist
           path: ./dist
+      - run: ls -la
+      - run: cat ./tag.txt
       - run: node scripts/update-from-bump.js
       - run: sh scripts/prepublish.sh
       - run: npm publish dist/
