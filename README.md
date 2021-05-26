@@ -10,7 +10,7 @@
 [![npm bundle size](https://img.shields.io/bundlephobia/min/akigami-ui)](https://bundlephobia.com/result?p=akigami-ui)
 [![VK Akigami](https://img.shields.io/badge/Follow-3.9k-%234680C2?style=social&logo=vk)](https://vk.com/akigru)
 
-Storybook: https://ui.akigami.co
+Storybook: https://akigami.github.io/akigami-ui/
 
 ## Install
 
