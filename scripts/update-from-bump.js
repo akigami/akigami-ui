@@ -3,7 +3,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const tagPath = path.resolve(__dirname, '../tag.txt');
+const tagPath = path.resolve(__dirname, '../tag.txt/tag.txt');
 const packagePath = path.resolve(__dirname, '../package.json');
 
 const pkg = JSON.parse(
