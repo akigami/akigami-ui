@@ -49,4 +49,4 @@ npm start
 
 ## License
 
-MIT © [Yukioru](https://github.com/Yukioru)
+MIT © 2021 [Akigami](https://github.com/akigami)
