@@ -66,6 +66,7 @@ jobs:
         with:
           name: dist
           path: ./dist
+      - run: node scripts/convert-to-gpr.js
       - run: sh scripts/prepublish.sh
       - run: npm publish ./dist
         env:
