@@ -11,7 +11,7 @@ const pkg = JSON.parse(
   })
 );
 
-pkg.name = '@akigami/ui';
+pkg.name = '@akigami/akigami-ui';
 
 pkg.publishConfig = {
   access: 'public',
