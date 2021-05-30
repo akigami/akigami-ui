@@ -8,6 +8,10 @@ export const theme = {
     fontSize: '14px',
     lineHeight: '18px',
   },
+  input: {
+    weight: 500,
+    height: 38,
+  },
   tabs: {
     padding: 4,
   },
