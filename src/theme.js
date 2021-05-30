@@ -1,7 +1,7 @@
 export const theme = {
   font: "'Manrope', sans-serif",
   button: {
-    weight: 600,
+    weight: 500,
     height: 38,
     padding: '10px 16px',
     paddingIcon: '8px 16px',
